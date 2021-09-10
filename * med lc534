@@ -45,6 +45,7 @@ Note that for each player we only care about the days when the player logged in.
 
 
 
+
 Solution:
 # Write your MySQL query statement below
 SELECT player_id, event_date, SUM(games_played) OVER (PARTITION BY player_id 
