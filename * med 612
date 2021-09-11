@@ -1,0 +1,41 @@
+Table point_2d holds the coordinates (x,y) of some unique points (more than two) in a plane.
+ 
+
+Write a query to find the shortest distance between these points rounded to 2 decimals.
+ 
+
+| x  | y  |
+|----|----|
+| -1 | -1 |
+| 0  | 0  |
+| -1 | -2 |
+ 
+
+The shortest distance is 1.00 from point (-1,-1) to (-1,2). So the output should be:
+ 
+
+| shortest |
+|----------|
+| 1.00     |
+ 
+
+Note: The longest distance among all the points are less than 10000.
+
+
+
+
+# Write your MySQL query statement below
+
+SELECT MIN(ROUND(SQRT(POWER((a.x-b.x), 2) + POWER((a.y - b.y), 2)), 2)) AS shortest
+FROM point_2d a, point_2d b
+WHERE a.x != b.x OR a.y != b.y;
+
+
+Difference of JOIN using WHERE and JOIN:
+* Does not matter for inner joins
+
+* Matters for outer joins
+
+a. WHERE clause: After joining. Records will be filtered after join has taken place.
+
+b. ON clause - Before joining. Records (from right table) will be filtered before joining. This may end up as null in the result (since OUTER join).
