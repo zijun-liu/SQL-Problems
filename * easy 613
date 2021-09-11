@@ -30,3 +30,4 @@ FROM point)
 
 SELECT MIN(next-x) AS shortest
 FROM cte;
+ 
