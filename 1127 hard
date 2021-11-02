@@ -1,0 +1,82 @@
+Table: Spending
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| user_id     | int     |
+| spend_date  | date    |
+| platform    | enum    | 
+| amount      | int     |
++-------------+---------+
+The table logs the history of the spending of users that make purchases from an online shopping website that has a desktop and a mobile application.
+(user_id, spend_date, platform) is the primary key of this table.
+The platform column is an ENUM type of ('desktop', 'mobile').
+ 
+
+Write an SQL query to find the total number of users and the total amount spent using the mobile only, the desktop only, and both mobile and desktop together for each date.
+
+Return the result table in any order.
+
+The query result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Spending table:
++---------+------------+----------+--------+
+| user_id | spend_date | platform | amount |
++---------+------------+----------+--------+
+| 1       | 2019-07-01 | mobile   | 100    |
+| 1       | 2019-07-01 | desktop  | 100    |
+| 2       | 2019-07-01 | mobile   | 100    |
+| 2       | 2019-07-02 | mobile   | 100    |
+| 3       | 2019-07-01 | desktop  | 100    |
+| 3       | 2019-07-02 | desktop  | 100    |
++---------+------------+----------+--------+
+Output: 
++------------+----------+--------------+-------------+
+| spend_date | platform | total_amount | total_users |
++------------+----------+--------------+-------------+
+| 2019-07-01 | desktop  | 100          | 1           |
+| 2019-07-01 | mobile   | 100          | 1           |
+| 2019-07-01 | both     | 200          | 1           |
+| 2019-07-02 | desktop  | 100          | 1           |
+| 2019-07-02 | mobile   | 100          | 1           |
+| 2019-07-02 | both     | 0            | 0           |
++------------+----------+--------------+-------------+ 
+Explanation: 
+On 2019-07-01, user 1 purchased using both desktop and mobile, user 2 purchased using mobile only and user 3 purchased using desktop only.
+On 2019-07-02, user 2 purchased using mobile only, user 3 purchased using desktop only and no one purchased using both platforms.
+
+
+
+
+
+
+
+# Write your MySQL query statement below
+WITH frame AS (SELECT *
+FROM 
+(SELECT DISTINCT spend_date
+FROM Spending) AS days
+CROSS JOIN (
+SELECT "mobile" AS platform
+UNION
+SELECT "desktop" AS platform
+UNION
+SELECT "both" AS platform) AS platforms),
+
+user AS (SELECT user_id, spend_date, IF(COUNT(DISTINCT platform) = 2, "both", platform) AS platform, SUM(amount) AS amount
+FROM Spending
+GROUP BY user_id, spend_date),
+
+content AS (SELECT spend_date, platform, SUM(amount) AS total_amount, COUNT(user_id) AS total_users
+FROM user
+GROUP BY spend_date, platform
+ORDER BY spend_date, platform)
+
+SELECT f.spend_date, f.platform, IFNULL(total_amount, 0) AS total_amount, IFNULL(total_users, 0) as total_users
+FROM frame f LEFT JOIN content c
+ON f.spend_date = c.spend_date AND f.platform = c.platform
