@@ -1,0 +1,7 @@
+https://learnsql.com/blog/moving-average-in-sql/
+
+select *,
+  avg(Price) OVER(ORDER BY Date
+     ROWS BETWEEN 2 PRECEDING AND CURRENT ROW )
+     as moving_average
+from stock_price;
