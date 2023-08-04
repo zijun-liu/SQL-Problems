@@ -71,3 +71,6 @@ FROM Queue) cum_wt_tbl
 WHERE cum_wt <= 1000
 ORDER BY cum_wt DESC
 LIMIT 1;
+
+
+CHECK
