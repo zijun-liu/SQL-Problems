@@ -62,3 +62,5 @@ MAX(CASE WHEN month = 'Nov' then revenue else null end) AS Nov_Revenue,
 MAX(CASE WHEN month = 'Dec' then revenue else null end) AS Dec_Revenue
 FROM Department
 GROUP BY id
+
+check
