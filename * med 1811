@@ -119,3 +119,5 @@ select u.name, u.mail
 from (select distinct user_id
 from t2) t left join Users u
 ON t.user_id = u.user_id
+
+check
