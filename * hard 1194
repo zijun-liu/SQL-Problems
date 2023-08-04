@@ -87,3 +87,5 @@ ON s.player_id = p.player_id
 GROUP BY p.group_id, p.player_id) rk
 WHERE rk = 1
 
+
+check
