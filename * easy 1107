@@ -59,3 +59,5 @@ WHERE activity = "login"
 GROUP BY user_id) first_login
 WHERE TIMESTAMPDIFF(DAY, date, "2019-06-30") <= 90
 GROUP BY login_date;
+
+check
