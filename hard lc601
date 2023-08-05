@@ -56,3 +56,5 @@ ON (a.id = b.id-1 AND a.id = c.id - 2) OR
 (a.id = b.id + 2 AND a.id = c.id + 1)
 WHERE a.people >=100 AND b.people >=100 AND c.people >=100
 ORDER BY a.id;
+
+check
