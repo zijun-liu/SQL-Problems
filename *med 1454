@@ -79,7 +79,9 @@ FROM Logins)
 
 SELECT DISTINCT l.id, a.name
 FROM cte t JOIN cte l
-ON t.id = l.id AND l.rk + 4 = t.rk AND DATEDIFF(t.login_date, l.login_date) BETWEEN 1 AND 4
+ON t.id = l.id AND l.rk + 4 = t.rk AND DATEDIFF(t.login_date, l.login_date) = 4
 JOIN Accounts a
 ON l.id = a.id
 ORDER BY 1
+
+check
