@@ -64,3 +64,5 @@ SELECT employee_id, department_id
 FROM (SELECT employee_id, department_id, primary_flag, COUNT(employee_id) over(PARTITION BY employee_id) AS ct
 FROM Employee) cte
 WHERE ct=1 OR primary_flag = "Y"
+
+check
