@@ -49,3 +49,6 @@ FROM
      FROM Employee e INNER JOIN Department d 
      ON e.DepartmentId = d.Id) a
 WHERE sal_rank <=3;
+
+
+check
