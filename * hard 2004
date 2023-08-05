@@ -98,3 +98,6 @@ FROM cte
 WHERE experience = 'Junior' AND cumsum <= (SELECT 70000 - IFNULL(MAX(cumsum), 0)
                                           FROM cte
                                           WHERE experience = 'Senior' AND cumsum <= 70000);
+
+
+check
