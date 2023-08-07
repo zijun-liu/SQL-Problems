@@ -53,3 +53,6 @@ WITH cte AS (
 SELECT DISTINCT(Num) AS ConsecutiveNums
 FROM cte
 WHERE Num= next_num AND next_num = next_num2;
+
+
+check
