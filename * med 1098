@@ -79,3 +79,5 @@ AND book_id NOT IN (SELECT book_id
                     WHERE dispatch_date BETWEEN DATE_SUB('2019-06-23', INTERVAL 1 YEAR) AND '2019-06-23'
                     GROUP BY book_id
                     HAVING SUM(quantity) >= 10);
+
+CHECK
