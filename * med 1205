@@ -90,3 +90,5 @@ SUM(IF(state = 'chargeback', 1, 0)) AS chargeback_count,
 SUM(IF(state = 'chargeback', amount, 0)) AS chargeback_amount
 FROM cte
 GROUP BY 1, 2;
+
+mark
