@@ -65,3 +65,6 @@ WHERE (product_id, year) IN (
 SELECT product_id, MIN(year) as year
 FROM Sales
 GROUP BY product_id);
+
+
+check
