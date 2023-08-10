@@ -96,3 +96,5 @@ ON e.DepartmentId = d.Id)
 SELECT Department, Employee, Salary
 FROM cte
 WHERE salary_rank <= 3
+
+check
