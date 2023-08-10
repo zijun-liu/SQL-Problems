@@ -64,3 +64,6 @@ ELSE 'Leaf' END AS Type
 FROM tree
 
 (https://leetcode.com/problems/tree-node/discuss/219003/Need-help-!!-what's-wrong-with-my-code)
+
+
+check
