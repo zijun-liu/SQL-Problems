@@ -108,3 +108,5 @@ WHERE e1.Id = e2.Id AND
     e1.Month != (SELECT MAX(Month) FROM Employee WHERE Id = e1.Id)  
 GROUP BY e1.Id, e1.Month
 ORDER BY e1.Id, e1.Month DESC
+
+check
