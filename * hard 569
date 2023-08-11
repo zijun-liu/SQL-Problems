@@ -46,3 +46,6 @@ FROM Employee)
 SELECT Id, Company, Salary
 FROM  cte
 WHERE row_num between cnt/2.0 and cnt/2.0+1;
+
+
+check
