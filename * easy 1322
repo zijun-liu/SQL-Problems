@@ -67,3 +67,6 @@ SELECT ad_id, IFNULL(ROUND(SUM(action='Clicked')*100 / SUM(action='Clicked' OR a
 FROM Ads
 GROUP BY ad_id
 ORDER BY ctr DESC, ad_id ASC;
+
+
+check
