@@ -42,3 +42,7 @@ FROM follow a INNER JOIN follow b
 ON a.follower = b.followee
 GROUP BY a.follower
 ORDER BY a.follower;
+
+
+
+CHECK
